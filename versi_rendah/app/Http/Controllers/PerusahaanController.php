@@ -90,7 +90,8 @@ class PerusahaanController extends Controller
      */
     public function show($id)
     {
-        //
+        $perusahaan = Perusahaan::findOrFail($id);
+        return view('perusahaan.view', compact('perusahaan'));
     }
 
     /**
@@ -101,7 +102,9 @@ class PerusahaanController extends Controller
      */
     public function edit($id)
     {
-        //
+          $sektor = \App\Sektor::all();
+        $perusahaan = \App\Perusahaan::findOrFail($id);
+        return view('perusahaan.edit', compact('perusahaan'))->with('sektor', $sektor);
     }
 
     /**
@@ -113,7 +116,34 @@ class PerusahaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $request->validate([
+           'sektor_id'     =>  'required',
+            'nama_perusahaan'    =>  'required',
+            'pekerjaan'    =>  'required',
+            'lokasi'     =>  'required',
+            'gaji'     =>  'required',
+            'deskripsi'    =>  'required',
+            'syarat'     =>  'required',
+            'no_hp'     =>  'required',
+            'website'    =>  'required',
+            ]);
+
+
+           $form_data = array(
+            'sektor_id'        =>   $request->sektor_id,
+            'nama_perusahaan'       =>   $request->nama_perusahaan,
+            'pekerjaan'       =>   $request->pekerjaan,
+            'lokasi'        =>   $request->lokasi,
+            'gaji'        =>   $request->gaji,
+            'deskripsi'        =>   $request->deskripsi,
+            'syarat'        =>   $request->syarat,
+            'no_hp'        =>   $request->no_hp,
+            'website'        =>   $request->website,
+        );
+  
+        Perusahaan::whereId($id)->update($form_data);
+
+        return redirect('perusahaan')->with('success', 'Data is successfully updated');
     }
 
     /**
@@ -124,6 +154,9 @@ class PerusahaanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $perusahaan = Perusahaan::findOrFail($id);
+        $perusahaan->delete();
+
+        return redirect('perusahaan')->with('success', 'Data is successfully deleted');
     }
 }

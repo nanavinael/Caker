@@ -49,8 +49,9 @@
        <td>{{ $row->sektor->nama_sektor }}</td>
        <td>{{ $row->gaji }}</td>
        <td>
-         <form action=""  method="post">
-          <a href="" class="btn btn-warning btn-sm">Edit</a>
+         <form action="{{route('perusahaan.destroy', $row->id)}}"  method="post">
+          <a href="{{route('perusahaan.show', $row->id)}}" class="btn btn-primary btn-sm">Lihat</a>
+          <a href="{{route('perusahaan.edit', $row->id)}}" class="btn btn-warning btn-sm">Edit</a>
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete data?');">Hapus</button>
