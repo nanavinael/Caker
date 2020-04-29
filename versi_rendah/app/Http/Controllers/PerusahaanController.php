@@ -75,6 +75,13 @@ class PerusahaanController extends Controller
         return redirect('perusahaan')->with('success', 'Data Added successfully.');
     }
 
+      function login(){
+        return view('user.login');
+    }
+    function register(){
+        return view('user.register');
+    }
+
     /**
      * Display the specified resource.
      *

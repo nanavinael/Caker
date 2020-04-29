@@ -12,8 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard.dashboard');
+    return view('user.login');
 });
-
+Route::group(['middleware' => ['admin']],function(){
 Route::resource('perusahaan','PerusahaanController');
 Route::resource('sektor','SektorController');
+Route::get('/logout', 'UserController@logout');
+});
+
+Route::group(['middleware' => ['logged']],function(){
+Route::post('user/login', 'UserController@login');
+Route::get('/register', 'PerusahaanController@register');
+Route::post('user/add', 'UserController@store');
+Route::get('/login', 'PerusahaanController@login')->name('login');
+});
