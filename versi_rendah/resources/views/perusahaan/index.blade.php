@@ -45,8 +45,8 @@
       <tr>
        <td>{{ $row->nama_perusahaan }}</td>
        <td>{{ $row->pekerjaan }}</td>
-       <td>{{ $row->lokasi }}</td>
        <td>{{ $row->sektor->nama_sektor }}</td>
+       <td>{{ $row->lokasi }}</td>
        <td>{{ $row->gaji }}</td>
        <td>
          <form action="{{route('perusahaan.destroy', $row->id)}}"  method="post">
