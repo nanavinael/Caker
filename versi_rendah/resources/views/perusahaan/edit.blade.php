@@ -42,7 +42,7 @@
          <label>Sektor</label>
          <select class="form-control" name="sektor_id" style=' border:1px border-radius:4px; -moz-border-radius:4px; height:50px; margin-left:10px;'>
                           @foreach( $sektor as $sektor)
-                              <option value="{{ $sektor->id_sektor }}" {{ $sektor->id_sektor == $perusahaan->sektor_id ? 'selected="selected"' : '' }}> {{ $perusahaan->nama_sektor}} </option>
+                              <option value="{{ $sektor->id_sektor }}" {{ $sektor->id_sektor == $perusahaan->sektor_id ? 'selected="selected"' : '' }}> {{ $sektor->nama_sektor}} </option>
                           @endforeach
           </select>
         </div>

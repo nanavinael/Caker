@@ -11,10 +11,10 @@
               <br>
           <ul class="sidebar-menu">
                 <li class="">
-                  <a class="nav-link" href="{{ route('sektor.index') }}"><i class="far fa-square"></i> <span>Sektor</span></a>
+                  <a class="nav-link" href="{{ route('perusahaan.index') }}"><i class="far fa-square"></i> <span>Perusahaan</span></a>
                 </li>
                 <li class="">
-                  <a class="nav-link" href="{{ route('perusahaan.index') }}"><i class="far fa-square"></i> <span>Perusahaan</span></a>
+                  <a class="nav-link" href="{{ route('sektor.index') }}"><i class="far fa-square"></i> <span>Sektor</span></a>
                 </li>
           </ul>
           <br><br><br>

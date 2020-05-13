@@ -13,13 +13,8 @@ class UserController extends Controller
     		\Session::flash('error', 'Password salah');
 
     		return redirect('register');
-    	}elseif ($request->email == $request->email){
-
-            \Session::flash('error', 'Email Sudah Terdaftar');
-
-            return redirect('register');
-        }
-
+    	}
+    
     	$data = [
     		'name' => $request->name,
     		'email' => $request->email,

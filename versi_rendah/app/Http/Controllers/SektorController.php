@@ -16,10 +16,10 @@ class SektorController extends Controller
     {
          $sektor = Sektor::when($request->search, function($query) use($request){
             $query->where('nama_sektor', 'LIKE', '%'.$request->search.'%');})
-            ->orderBy('id_sektor', 'asc')->paginate(2);
+            ->orderBy('id_sektor', 'asc')->paginate(5);
 
         return view('sektor.index', compact('sektor'))
-                ->with('i', (request()->input('page', 1) - 1) * 2);
+                ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
